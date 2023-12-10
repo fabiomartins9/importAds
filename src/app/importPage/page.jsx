@@ -4,17 +4,17 @@ import React, { useState } from "react";
 import "./page.css";
 
 import { Col, Row, Form, Button, InputNumber, Input } from "antd";
-import Cascader_uf from "../../../components/cascader/cascader_uf";
+import CascaderUF from "../../../components/cascader/cascader_uf";
 import Coins from "../../../components/coins/coins";
 import TableResult from "../../../components/table/table";
 import PDFContent from "../../../components/pdfContent/PdfContent";
-import {
-  PDFDownloadLink,
-  PDFViewer,
-  Document,
-  Page,
-  Text,
-} from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+
+const currentDate = new Date();
+
+// Criar o nome do arquivo com a data e hora atual
+const fileName = currentDate.toLocaleString('default', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/[/ :]/g, '') + '.pdf';
+
 
 const data = [
   {
@@ -53,10 +53,17 @@ const data = [
 ];
 
 
-  
 
 export default function ImpotPage() {
   const [pdfVisible, setPdfVisible] = useState(false);
+
+  // Função que será chamada quando um item for selecionado no CascaderUF
+  const handleSelect = (value, selectedOptions) => {
+    console.log('Valor selecionado:', value);
+    console.log('Opções selecionadas:', selectedOptions);
+    // Aqui você pode realizar as ações desejadas com o valor selecionado
+  };
+  
   return (
     <div className="container">
       <div className="Col-form">
@@ -73,7 +80,7 @@ export default function ImpotPage() {
                 <Input style={{ width: "80%" }} />
               </Form.Item>
               <Form.Item label="UF:">
-                <Cascader_uf />
+              <CascaderUF onSelect={handleSelect} /> {/* Passando a função handleSelect como onSelect */}
               </Form.Item>
               <Form.Item label="Aliquota:">
                 <span>Valor da aliquota</span>
@@ -114,17 +121,20 @@ export default function ImpotPage() {
           <Row id="table">
             <TableResult dataSource={data} />
             {/* Adicionar um botão para baixar a tabela em PDF */}
-          <PDFDownloadLink document={<PDFContent data={data} />} fileName="documento.pdf">
-            {({ blob, url, loading, error }) => (
-              <Button
-                type="primary"
-                style={{ marginTop: '10px' }}
-                disabled={loading}
-              >
-                {loading ? 'Gerando PDF...' : 'Baixar Tabela em PDF'}
-              </Button>
-            )}
-          </PDFDownloadLink>
+            <PDFDownloadLink
+              document={<PDFContent data={data} />}
+              fileName={fileName}
+            >
+              {({ blob, url, loading, error }) => (
+                <Button
+                  type="primary"
+                  style={{ marginTop: "10px" }}
+                  disabled={loading}
+                >
+                  {loading ? "Gerando PDF..." : "Baixar Tabela em PDF"}
+                </Button>
+              )}
+            </PDFDownloadLink>
           </Row>
         </Col>
       </div>

@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-pdf/renderer": "^3.1.14",
     "antd": "^5.12.1",
+    "firebase": "^10.7.1",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"
