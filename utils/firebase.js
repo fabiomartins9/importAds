@@ -10,13 +10,13 @@ import 'firebase/compat/firestore'; // Ou qualquer outro serviço que você prec
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCPleLTdwLGOGEvUEPCoiXSIhLa4j3hLcg",
-  authDomain: "import-tax.firebaseapp.com",
+  apiKey: "",
+  authDomain: "",
   projectId: "import-tax",
-  storageBucket: "import-tax.appspot.com",
-  messagingSenderId: "379270476272",
-  appId: "1:379270476272:web:398f60e68ee7b324142d35",
-  measurementId: "G-5J6RLQF5RM"
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 
