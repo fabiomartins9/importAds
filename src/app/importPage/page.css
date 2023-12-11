@@ -29,7 +29,7 @@ body, html {
   
   .Col-form{
     width: 80%;
-    background: gray;
+    background: white;
     min-height: 80%;
     display: flex;
     flex-direction: row;
@@ -41,4 +41,21 @@ body, html {
   
 #table{
   padding: 15px;
+}
+
+
+.card-form{
+  background: gray;
+  width: 100%;
+  
+}
+
+
+.row-import-pages{
+  width: 100%;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center;
 }
