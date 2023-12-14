@@ -17,7 +17,7 @@ const CascaderUF = ({ onSelect }) => {
       }));
 
       setOptions(data);
-      console.log(data);
+   
     } catch (error) {
       console.error('Erro ao buscar dados do Firestore:', error);
     }
@@ -28,8 +28,9 @@ const CascaderUF = ({ onSelect }) => {
   }, []);
 
   const onChange = async (value) => {
+    if(value != undefined){
     const selectedUF = value[0]; // Assume-se que estamos selecionando apenas um UF
-
+    
     // Recupere o valor do ICMS associado ao UF selecionado
     const firestore = firebase.firestore();
     const icmsDoc = await firestore.collection('icms').doc(selectedUF).get();
@@ -37,6 +38,7 @@ const CascaderUF = ({ onSelect }) => {
 
     // Passe o valor do ICMS selecionado para o componente pai através da função onSelect
     onSelect(selectedUF, valorIcms);
+  }
   };
 
   return (

@@ -10,3 +10,26 @@
   .ant-table table { 
     font-size: 10px; 
 }
+
+.btn-center{
+  display: flex;
+  justify-content: center;
+}
+
+
+.ant-table-cell > tr > th{
+  background: red;
+}
+
+.ant-table-thead .ant-table-cell {
+  background-color: #808080 !important;
+}
+
+#table{
+  padding: 1px;
+  height: 100%;
+  width: 100%;
+  padding-top: 1px;
+  padding-left: 50px
+}
+

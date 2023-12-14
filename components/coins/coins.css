@@ -6,3 +6,31 @@
      list-style-type: none;
     padding-right: 14px;
 }
+
+
+/* coins.css */
+
+.faixa {
+    font-family: Arial, sans-serif;
+    /* height: 51px; */
+  }
+  
+  .faixa ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .faixa ul li {
+    display: flex;
+    align-items: center;
+    color: azure;
+  }
+  
+  .faixa ul li Image {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  
+  
