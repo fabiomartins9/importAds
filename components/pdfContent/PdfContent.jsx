@@ -2,7 +2,11 @@
 
 import { Document, Page, Text, View, Image } from "@react-pdf/renderer";
 
-const PDFContent = ({ data }) => {
+
+
+function PDFContent ({ data }) {
+
+
   
   return (
     <Document>
@@ -12,16 +16,17 @@ const PDFContent = ({ data }) => {
           alt=""
           style={{ width: 100, height: 100, marginBottom: 10 }}
         />
-
+        
         {/* Adicionar um cabeçalho com os nomes das colunas */}
         <View
           style={{
             flexDirection: "row",
             marginBottom: 5,
             fontWeight: "bold",
-            marginTop: 40,
+            marginTop: 30,
           }}
         >
+          
           <Text style={{ width: "20%", fontSize: 8 }}>Nome</Text>
           <Text style={{ width: "10%", fontSize: 8 }}>Data</Text>
           <Text style={{ width: "10%", fontSize: 8 }}>Custo Tax Import</Text>
@@ -32,6 +37,8 @@ const PDFContent = ({ data }) => {
           </Text>
           <Text style={{ width: "10%", fontSize: 8 }}>Valor Total Compra</Text>
           <Text style={{ width: "10%", fontSize: 8 }}>Valor Total Produto</Text>
+          <Text style={{ width: "10%", fontSize: 8 }}>Cotação</Text>
+          
           {/* Adicione mais Text para outros nomes de colunas conforme necessário */}
         </View>
 
@@ -60,6 +67,9 @@ const PDFContent = ({ data }) => {
             </Text>
             <Text style={{ width: "10%", fontSize: 8 }}>
               {item.valorTotalProduto}
+            </Text>
+            <Text style={{ width: "10%", fontSize: 8 }}>
+              {item.cotacao}
             </Text>
             {/* Adicione mais Text para outros dados conforme necessário */}
           </View>

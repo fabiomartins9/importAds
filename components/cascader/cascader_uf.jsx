@@ -17,7 +17,7 @@ const CascaderUF = ({ onSelect }) => {
       }));
 
       setOptions(data);
-      console.log(data);
+   
     } catch (error) {
       console.error('Erro ao buscar dados do Firestore:', error);
     }

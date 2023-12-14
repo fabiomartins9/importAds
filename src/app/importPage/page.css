@@ -57,5 +57,5 @@ body, html {
 
 .button-center {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
